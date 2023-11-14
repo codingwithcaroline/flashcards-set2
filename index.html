@@ -1,0 +1,144 @@
+<head>
+    <title>PSYC7706 Cards</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+      integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <style>
+      @import url('https://fonts.googleapis.com/css?family=Lato:400,700,900&display=swap');
+    </style>
+  </head>
+  
+  <body>
+  
+    <div class="container">
+      <div class="row">
+        <div class="square">
+          <div class="card" id="container-1">
+            <i class=""><span class="instruction"></span></i>
+              <div class="card-front">
+                  <img src="Description.jpeg" alt="Description">
+                  <div class="title"><strong><br>DESCRIPTION</strong></div>
+              </div>
+              <div class="card-back">
+                <div class="textCenter">
+                  <div class="text">Accurate portrayal/depiction of phenomenon
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+        <div class="square">
+          <div class="card" id="container-2">
+            <i class=""><span class="instruction"></span></i>
+              <div class="card-front">
+                  <img src="Explanation.jpeg" alt="Explanation">
+                  <div class="title"><strong><br>EXPLANATION</strong></div>
+              </div>
+              <div class="card-back">
+                <div class="textCenter">
+                  <div class="text">Gathering knowledge about "why" a phenomenon exists or its causes
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="square">
+          <div class="card" id="container-4">
+            <i class=""><span class="instruction"></span></i>
+              <div class="card-front">
+                  <img src="Control.jpeg" alt="Control">
+                  <div class="title"><strong><br>CONTROL</strong></div>
+              </div>
+              <div class="card-back">
+                <div class="textCenter">
+                  <div class="text">Manipulation of conditions to affect behavior
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+        <div class="square">
+          <div class="card" id="container-2">
+            <i class=""><span class="instruction"></span></i>
+              <div class="card-front">
+                  <img src="Prediction.jpeg" alt="Prediction">
+                  <div class="title"><strong><br>PREDICTION</strong></div>
+              </div>
+              <div class="card-back">
+                <div class="textCenter">
+                  <div class="text">Anticipate an event prior to its occurance
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  
+    <script>
+      function flipToBack(n) {
+        let target = "card-" + n;
+        let backs = document.getElementsByClassName("side back");
+        let back = backs[n - 1];
+        back.setAttribute("style", "overflow-y: auto");
+        document.getElementById(target).classList.add("card-flip");
+        let issuer = "container-" + n;
+        document.getElementById(issuer).setAttribute("onclick", "flipToFront(" + n + ")");
+        let link = "link-" + n;
+        if (document.getElementById(link)) {
+          document.getElementById(link).classList.add('visible');
+        }
+      }
+  
+      function flipToFront(n) {
+        let target = "card-" + n;
+        let backs = document.getElementsByClassName("side back");
+        let back = backs[n - 1];
+        back.setAttribute("style", "overflow-y: hidden");
+        document.getElementById(target).classList.remove("card-flip");
+        let issuer = "container-" + n;
+        document.getElementById(issuer).setAttribute("onclick", "flipToBack(" + n + ")");
+        let link = "link-" + n;
+        if (document.getElementById(link)) {
+          document.getElementById(link).classList.remove('visible');
+        }
+      }
+
+      var A = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+      var sum = 0;
+      var max = 0;
+      for (var i = 1; i< A.length; i++) {
+        sum = 0;
+        for (var j = 1; j < A.length; j++) {
+          sum = sum + A[j];
+          console.log(sum);
+          if (sum > max) {
+            max = sum;
+          }
+        }
+      }
+      console.log(max);
+  
+      /*
+      function openOverlay(n){
+          let target = "flip-card-" + n;
+          let bio = "bio-link-" + n;
+          document.getElementById(target).classList.add("overlay-visible");
+          document.getElementById(bio).innerHTML = "Close";
+          document.getElementById(bio).setAttribute("onclick", "closeOverlay(" + n + ")");
+      }
+  
+      function closeOverlay(n){
+          console.log("Close " + n);
+          let target = "flip-card-" + n;
+          let bio = "bio-link-" + n;
+          document.getElementById(target).classList.remove("overlay-visible");
+          document.getElementById(bio).innerHTML = "Bio";
+          document.getElementById(bio).setAttribute("onclick", "openOverlay(" + n + ")");
+      }
+      */
+    </script>
+  </body>
